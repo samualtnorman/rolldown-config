@@ -76,6 +76,8 @@ type Options = LaxPartial<{
 	 * https://rollupjs.org/configuration-options/#output-preservemodules) instead.
 	 */
 	preserveModules: boolean
+
+	experimental: LaxPartial<{ noSideEffects: boolean }>
 }>
 
 /**
@@ -115,7 +117,8 @@ export const rollupConfig = async ({
 	rollupOptions,
 	babelOptions,
 	terserOptions,
-	prettierOptions
+	prettierOptions,
+	experimental
 }: Options = {}): Promise<RollupOptions> => defu(rollupOptions, {
 	external: source => !(Path.isAbsolute(source) || source.startsWith(".")),
 	input: Object.fromEntries(
@@ -147,7 +150,7 @@ export const rollupConfig = async ({
 			mangle: false,
 			ecma: 2020
 		} satisfies TerserOptions)),
-		{
+		experimental?.noSideEffects && {
 			name: `no-side-effects`,
 			async renderChunk(code) {
 				const ast = ensure(await parseAsync(code, { plugins: [ babelPluginSyntaxTypescript ] }))
