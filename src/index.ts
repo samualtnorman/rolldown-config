@@ -3,8 +3,6 @@ import babelPluginSyntaxTypescript from "@babel/plugin-syntax-typescript"
 import babelPresetEnv, { Options as BabelPresetEnvOptions } from "@babel/preset-env"
 import babelPresetTypescript from "@babel/preset-typescript"
 import { babel, type RollupBabelInputPluginOptions } from "@rollup/plugin-babel"
-import json from "@rollup/plugin-json"
-import { nodeResolve } from "@rollup/plugin-node-resolve"
 import terser, { type Options as TerserOptions } from "@rollup/plugin-terser"
 import type { LaxPartial } from "@samual/lib"
 import { ensure } from "@samual/lib/assert"
@@ -14,7 +12,7 @@ import { babelPluginVitest } from "babel-plugin-vitest"
 import { defu } from "defu"
 import { cpus } from "os"
 import * as Path from "path"
-import type { RollupOptions } from "rollup"
+import type { RolldownOptions } from "rolldown"
 import prettier, { type Options as PrettierOptions } from "rollup-plugin-prettier"
 
 type Options = LaxPartial<{
@@ -24,28 +22,28 @@ type Options = LaxPartial<{
 	 *
 	 * @example
 	 * ```js
-	 * // rollup.config.js
-	 * import { rollupConfig } from "@samual/rollup-config"
+	 * // rolldown.config.js
+	 * import { rolldownConfig } from "@samual/rolldown-config"
 	 *
-	 * export default rollupConfig({ sourcePath: "source" })
+	 * export default rolldownConfig({ sourcePath: "source" })
 	 * ```
 	 */
 	sourcePath: string
 
 	/**
-	 * Override any Rollup options.
-	 * @see [Official Rollup docs.](https://rollupjs.org/configuration-options/)
+	 * Override any Rolldown options.
+	 * @see [Official Rolldown docs.](https://rolldown.rs/reference/config-options)
 	 *
 	 * @example
 	 * ```ts
-	 * // rollup.config.js
-	 * import { rollupConfig } from "@samual/rollup-config"
+	 * // rolldown.config.js
+	 * import { rolldownConfig } from "@samual/rolldown-config"
 	 *
 	 * // You can override the output folder like so:
-	 * export default rollupConfig({ rollupOptions: { output: { dir: "build" } } })
+	 * export default rolldownConfig({ rolldownOptions: { output: { dir: "build" } } })
 	 * ```
 	 */
-	rollupOptions: RollupOptions
+	rolldownOptions: RolldownOptions
 
 	/**
 	 * Override any Babel options.
@@ -64,18 +62,6 @@ type Options = LaxPartial<{
 	 * @see [Official Prettier docs.](https://prettier.io/docs/en/options)
 	 */
 	prettierOptions: PrettierOptions
-
-	/**
-	 * @deprecated Use {@linkcode Options.rollupOptions rollupOptions} [`output.dir`](
-	 * https://rollupjs.org/configuration-options/#output-dir) instead.
-	 */
-	outPath: string
-
-	/**
-	 * @deprecated Use {@linkcode Options.rollupOptions rollupOptions} [`output.preserveModules`](
-	 * https://rollupjs.org/configuration-options/#output-preservemodules) instead.
-	 */
-	preserveModules: boolean
 
 	experimental: LaxPartial<{ noSideEffects: boolean }>
 }>
@@ -104,22 +90,20 @@ type Options = LaxPartial<{
  *
  * @example
  * ```js
- * // rollup.config.js
- * import { rollupConfig } from "@samual/rollup-config"
+ * // rolldown.config.js
+ * import { rolldownConfig } from "@samual/rolldown-config"
  *
- * export default rollupConfig()
+ * export default rolldownConfig()
  * ```
  */
-export const rollupConfig = async ({
+export const rolldownConfig = async ({
 	sourcePath = "src",
-	outPath = "dist",
-	preserveModules = false,
-	rollupOptions,
+	rolldownOptions,
 	babelOptions,
 	terserOptions,
 	prettierOptions,
 	experimental
-}: Options = {}): Promise<RollupOptions> => defu(rollupOptions, {
+}: Options = {}): Promise<RolldownOptions> => defu(rolldownOptions, {
 	external: source => !(Path.isAbsolute(source) || source.startsWith(".")),
 	input: Object.fromEntries(
 		(await findFiles(sourcePath))
@@ -129,7 +113,7 @@ export const rollupConfig = async ({
 			)
 			.map(path => [ path.slice(sourcePath.length + 1, -3), path ])
 	),
-	output: { dir: outPath, preserveModules },
+	output: { dir: `dist` },
 	plugins: [
 		babel(defu(babelOptions, {
 			babelHelpers: "bundled",
@@ -143,7 +127,6 @@ export const rollupConfig = async ({
 			],
 			plugins: [ babelPluginHere(), babelPluginVitest() ]
 		} satisfies RollupBabelInputPluginOptions)),
-		nodeResolve({ extensions: [ ".ts" ] }),
 		terser(defu(terserOptions, {
 			compress: { passes: Infinity, unsafe: true, sequences: false },
 			maxWorkers: Math.floor(cpus().length / 2),
@@ -184,10 +167,8 @@ export const rollupConfig = async ({
 			printWidth: 120,
 			semi: false,
 			trailingComma: "none"
-		} satisfies PrettierOptions)),
-		json({ preferConst: true })
+		} satisfies PrettierOptions))
 	],
 	preserveEntrySignatures: "strict",
-	strictDeprecations: true,
 	treeshake: { moduleSideEffects: false }
-} satisfies RollupOptions)
+} satisfies RolldownOptions)
