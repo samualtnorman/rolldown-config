@@ -5,7 +5,7 @@ Requires Node.js 20.10+, 22.0+, or above.
 
 ## Install
 ```sh
-npm install @samual/cookie
+npm install @samual/rolldown-config
 ```
 
 ## Usage
