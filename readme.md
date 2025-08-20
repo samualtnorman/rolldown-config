@@ -1,8 +1,6 @@
 # Samual's Rolldown Config
 An opinionated Rolldown config.
 
-Requires Node.js 20.10+, 22.0+, or above.
-
 ## Install
 ```sh
 npm install @samual/rolldown-config
