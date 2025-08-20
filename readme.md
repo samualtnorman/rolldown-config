@@ -1,5 +1,5 @@
-# Samual's Rollup Config
-An opinionated Rollup config.
+# Samual's Rolldown Config
+An opinionated Rolldown config.
 
 Requires Node.js 20.10+, 22.0+, or above.
 
@@ -9,13 +9,13 @@ npm install @samual/cookie
 ```
 
 ## Usage
-Put this in your `rollup.config.js`:
+Put this in your `rolldown.config.js`:
 ```js
-import { rollupConfig } from "@samual/rollup-config"
+import { rolldownConfig } from "@samual/rolldown-config"
 
-export default rollupConfig()
+export default rolldownConfig()
 ```
 
 By default, this config finds source files in `src` and emits them to `dist`.
-You can override the source path with `rollupConfig({ sourcePath: "source" })` and you can override the out path with
-`rollupConfig({ outPath: "build" })`.
+You can override the source path with `rolldownConfig({ sourcePath: "source" })` and you can override the out path with
+`rolldownConfig({ rolldownOptions: { output: { dir: "build" } } })`.
