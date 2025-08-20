@@ -50,9 +50,9 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0(prettier@3.3.3)(rollup@4.40.2)
     devDependencies:
-      '@samual/rollup-config':
-        specifier: 0.1.3-858c2de
-        version: 0.1.3-858c2de(@babel/core@7.27.1)(@types/babel__core@7.20.5)(prettier@3.3.3)(rollup@4.40.2)
+      '@samual/rolldown-config':
+        specifier: jsr:0.0.1-9a6b6c8
+        version: '@jsr/samual__rolldown-config@0.0.1-9a6b6c8(@types/babel__core@7.20.5)(prettier@3.3.3)(rollup@4.40.2)'
       '@total-typescript/ts-reset':
         specifier: ^0.6.1
         version: 0.6.1
@@ -71,9 +71,6 @@ importers:
       jsr:
         specifier: ^0.13.5
         version: 0.13.5
-      rollup:
-        specifier: ^4.40.2
-        version: 4.40.2
       semver:
         specifier: ^7.7.1
         version: 7.7.1
@@ -771,6 +768,9 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
+  '@jsr/samual__rolldown-config@0.0.1-9a6b6c8':
+    resolution: {integrity: sha512-/X4mVXLy+FEyUxCPw2isOsjrDzcAMyDQC1yT1eGabVtseUBX9NjQ1T6IJ89kIRFqtdZ9IGjCYxHAb2I2OoApeA==, tarball: https://npm.jsr.io/~/11/@jsr/samual__rolldown-config/0.0.1-9a6b6c8.tgz}
+
   '@napi-rs/wasm-runtime@1.0.3':
     resolution: {integrity: sha512-rZxtMsLwjdXkMUGC3WwsPwLNVqVqnTJT6MNIB6e+5fhMcSCPP0AOsNWuMQ5mdCq6HNjs/ZeWAEchpqeprqBD2Q==}
 
@@ -864,24 +864,6 @@ packages:
     peerDependenciesMeta:
       '@types/babel__core':
         optional: true
-      rollup:
-        optional: true
-
-  '@rollup/plugin-json@6.1.0':
-    resolution: {integrity: sha512-EGI2te5ENk1coGeADSIwZ7G2Q8CJS2sF120T7jLw4xFw9n7wIOXHo+kIYRAoVpJAN+kmqZSoO3Fp4JtoNF4ReA==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-
-  '@rollup/plugin-node-resolve@15.3.1':
-    resolution: {integrity: sha512-tgg6b91pAybXHJQMAAwW9VuWBO6Thi+q7BCNARLwSqlmsHz0XYURtGvh/AuwSADXSI4h/2uHbs7s4FzlZDGSGA==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^2.78.0||^3.0.0||^4.0.0
-    peerDependenciesMeta:
       rollup:
         optional: true
 
@@ -1003,16 +985,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@samual/lib@0.13.0':
-    resolution: {integrity: sha512-5uUTQaWsuK0110a0voLpiHn4S+fkGd9s2EkKFg6JGfAP8m9UFmMf55wqw5ycypjhHqLgn6sdZDSKCyeQeVEbdA==}
-    engines: {node: ^18.20 || ^20.10 || >=22}
-
   '@samual/lib@0.13.1-4031e7a':
     resolution: {integrity: sha512-/JRovXM3eGw+0M3tm2NfIllPfrMFDepxAYEBfENd1jlp8UX1sdJS+iy+h4HiUiyhSHZUxZTi7zTseICumHQHTQ==}
-    engines: {node: ^18.20 || ^20.10 || >=22}
-
-  '@samual/rollup-config@0.1.3-858c2de':
-    resolution: {integrity: sha512-QwMk8abk5Zx29fM92CdK7/4YU/25+lDAe6EZuInFwn8kKVMINDW+LyI5GfsWlsAEXGXWUzazSyafM9f3aXkulw==}
     engines: {node: ^18.20 || ^20.10 || >=22}
 
   '@total-typescript/ts-reset@0.6.1':
@@ -1049,9 +1023,6 @@ packages:
     resolution: {integrity: sha512-mFMBfMOz8QxhYVbuINtswBp9VL2b4Y0QqYHwqLz3YbgtfAcat2Dl6Y1o4e22S/OVE6Ebl9m7wWiMT2lSbAs1wA==}
     deprecated: This is a stub types definition. prettier provides its own type definitions, so you do not need this installed.
 
-  '@types/resolve@1.20.2':
-    resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
-
   '@types/semver@7.7.0':
     resolution: {integrity: sha512-k107IF4+Xr7UHjwDc7Cfd6PRQfbdkiRabXGRjo07b4WyPahFBZCZ1sE+BNxYIJPPg73UkfOsVOLwqVc/6ETrIA==}
 
@@ -1063,9 +1034,6 @@ packages:
   ansis@4.1.0:
     resolution: {integrity: sha512-BGcItUBWSMRgOCe+SVZJ+S7yTRG0eGt9cXAHev72yuGcY23hnLA7Bky5L/xLyPINoSN95geovfBkqoTlNZYa7w==}
     engines: {node: '>=14'}
-
-  babel-plugin-here@1.0.2:
-    resolution: {integrity: sha512-t45FblS+jfHZ8HM8mHAloUUgQfzoyqMtExNIJH+7zyDytMfu/CP9IOCnRQeem1C3tBeEUq6uU2aOmNXYS293bA==}
 
   babel-plugin-here@1.0.3-ac850f7:
     resolution: {integrity: sha512-tDwH9UHbPtXsMjWr++dZpHNxt1ojSKpcTOry34EXOMXfc03uyhrp1CJbIDCuX8ivigPE9uuN+c70IYKMsjqbdg==}
@@ -1084,10 +1052,6 @@ packages:
     resolution: {integrity: sha512-2R25rQZWP63nGwaAswvDazbPXfrM3HwVoBXK6HcqeKrSrL/JqcC/rDcf95l4r7LXLyxDXc8uQDa064GubtCABg==}
     peerDependencies:
       '@babel/core': ^7.4.0 || ^8.0.0-0 <8.0.0
-
-  babel-plugin-vitest@0.0.0:
-    resolution: {integrity: sha512-Sd319TUmXTYpw13V12e1hzdJSuMeXAkHRru7HI4SWyMi+J+xfhVGEN+Uxd9Hi3j3dSrIv0xdYvm78uKf6RpThQ==}
-    engines: {node: ^18 || >=20}
 
   babel-plugin-vitest@0.0.1-7dc1dde:
     resolution: {integrity: sha512-pBrCvAEddVcZVmD3jBpuNqczX04gvIFVkG1s4kjIUmt0fYhG+feL7k+aXFpAmugMo9aG1lXrgwpjFWj3oh+1qQ==}
@@ -1121,10 +1085,6 @@ packages:
     peerDependenciesMeta:
       supports-color:
         optional: true
-
-  deepmerge@4.3.1:
-    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
-    engines: {node: '>=0.10.0'}
 
   defu@6.0.1:
     resolution: {integrity: sha512-rZrZJDGZkdmVhFer2Q7ItCOcpPaAU8nDvDOBHTJNiYkvgvUeomBkJTuzRKNQoWgXUFJLx1tDhp3lqdS/twWUdw==}
@@ -1170,16 +1130,9 @@ packages:
   invariant@2.2.4:
     resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
 
-  is-core-module@2.15.1:
-    resolution: {integrity: sha512-z0vtXSwucUJtANQWldhbtbt7BnL0vxiFjIdDLAatwhDYty2bad6s+rijD6Ri4YuYJubLzIJLUidCh09e1djEVQ==}
-    engines: {node: '>= 0.4'}
-
   is-core-module@2.16.1:
     resolution: {integrity: sha512-UfoeMA6fIJ8wTYFEUjelnaGI67v6+N7qXJEvQuIGa99l4xsCruSYOVSQ0uPANn4dAzm8lkYPaKLrrijLq7x23w==}
     engines: {node: '>= 0.4'}
-
-  is-module@1.0.0:
-    resolution: {integrity: sha512-51ypPSPCoTEIN9dy5Oy+h4pShgJmPCygKfyRCISBI+JoWT/2oJvK8QPxmwv7b/p239jXrm9M1mlQbyKJ5A152g==}
 
   js-levenshtein@1.1.6:
     resolution: {integrity: sha512-X2BB11YZtrRqY4EnQcLX5Rh373zbK4alC1FW7D7MBhL2gtcC17cTnr6DmfHZeS0s2rTHjUTMMHfG7gO8SSdw+g==}
@@ -1287,10 +1240,6 @@ packages:
   resolve@1.22.10:
     resolution: {integrity: sha512-NPRy+/ncIMeDlTAsuqwKIiferiawhefFJtkNSW0qZJEqMEb+qBt/77B/jGeeek+F0uOeN05CDa6HXbbIgtVX4w==}
     engines: {node: '>= 0.4'}
-    hasBin: true
-
-  resolve@1.22.8:
-    resolution: {integrity: sha512-oKWePCxqpd6FlLvGV1VU0x7bkPmmCNolxzjMf4NczoDnQcIWrAF+cPtZn5i6n+RfD2d9i0tzpKnG6Yk168yIyw==}
     hasBin: true
 
   rolldown@1.0.0-beta.33:
@@ -2342,6 +2291,26 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  '@jsr/samual__rolldown-config@0.0.1-9a6b6c8(@types/babel__core@7.20.5)(prettier@3.3.3)(rollup@4.40.2)':
+    dependencies:
+      '@babel/core': 7.27.1
+      '@babel/plugin-syntax-typescript': 7.27.1(@babel/core@7.27.1)
+      '@babel/preset-env': 7.26.0(@babel/core@7.27.1)
+      '@babel/preset-typescript': 7.26.0(@babel/core@7.27.1)
+      '@rollup/plugin-babel': 6.0.4(@babel/core@7.27.1)(@types/babel__core@7.20.5)(rollup@4.40.2)
+      '@rollup/plugin-terser': 0.4.4(rollup@4.40.2)
+      '@samual/lib': 0.13.1-4031e7a
+      babel-plugin-here: 1.0.3-ac850f7
+      babel-plugin-vitest: 0.0.1-7dc1dde
+      defu: 6.0.1(patch_hash=1780f4e4f74b651ece75ec841000d9c155607e01b328efc91c4f39fb5f1c3e7c)
+      rolldown: 1.0.0-beta.33
+      rollup-plugin-prettier: 4.1.1(prettier@3.3.3)(rollup@4.40.2)
+    transitivePeerDependencies:
+      - '@types/babel__core'
+      - prettier
+      - rollup
+      - supports-color
+
   '@napi-rs/wasm-runtime@1.0.3':
     dependencies:
       '@emnapi/core': 1.4.5
@@ -2409,22 +2378,6 @@ snapshots:
       rollup: 4.40.2
     transitivePeerDependencies:
       - supports-color
-
-  '@rollup/plugin-json@6.1.0(rollup@4.40.2)':
-    dependencies:
-      '@rollup/pluginutils': 5.1.3(rollup@4.40.2)
-    optionalDependencies:
-      rollup: 4.40.2
-
-  '@rollup/plugin-node-resolve@15.3.1(rollup@4.40.2)':
-    dependencies:
-      '@rollup/pluginutils': 5.1.3(rollup@4.40.2)
-      '@types/resolve': 1.20.2
-      deepmerge: 4.3.1
-      is-module: 1.0.0
-      resolve: 1.22.8
-    optionalDependencies:
-      rollup: 4.40.2
 
   '@rollup/plugin-terser@0.4.4(rollup@4.40.2)':
     dependencies:
@@ -2502,29 +2455,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.40.2':
     optional: true
 
-  '@samual/lib@0.13.0': {}
-
   '@samual/lib@0.13.1-4031e7a': {}
-
-  '@samual/rollup-config@0.1.3-858c2de(@babel/core@7.27.1)(@types/babel__core@7.20.5)(prettier@3.3.3)(rollup@4.40.2)':
-    dependencies:
-      '@babel/preset-env': 7.26.0(@babel/core@7.27.1)
-      '@babel/preset-typescript': 7.26.0(@babel/core@7.27.1)
-      '@rollup/plugin-babel': 6.0.4(@babel/core@7.27.1)(@types/babel__core@7.20.5)(rollup@4.40.2)
-      '@rollup/plugin-json': 6.1.0(rollup@4.40.2)
-      '@rollup/plugin-node-resolve': 15.3.1(rollup@4.40.2)
-      '@rollup/plugin-terser': 0.4.4(rollup@4.40.2)
-      '@samual/lib': 0.13.0
-      babel-plugin-here: 1.0.2
-      babel-plugin-vitest: 0.0.0
-      defu: 6.0.1(patch_hash=1780f4e4f74b651ece75ec841000d9c155607e01b328efc91c4f39fb5f1c3e7c)
-      rollup-plugin-prettier: 4.1.1(prettier@3.3.3)(rollup@4.40.2)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@types/babel__core'
-      - prettier
-      - rollup
-      - supports-color
 
   '@total-typescript/ts-reset@0.6.1': {}
 
@@ -2568,18 +2499,11 @@ snapshots:
     dependencies:
       prettier: 3.3.3
 
-  '@types/resolve@1.20.2': {}
-
   '@types/semver@7.7.0': {}
 
   acorn@8.14.0: {}
 
   ansis@4.1.0: {}
-
-  babel-plugin-here@1.0.2:
-    dependencies:
-      '@babel/types': 7.27.1
-      '@samual/lib': 0.13.0
 
   babel-plugin-here@1.0.3-ac850f7:
     dependencies:
@@ -2610,10 +2534,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  babel-plugin-vitest@0.0.0:
-    dependencies:
-      '@babel/types': 7.27.1
-
   babel-plugin-vitest@0.0.1-7dc1dde:
     dependencies:
       '@babel/types': 7.27.1
@@ -2640,8 +2560,6 @@ snapshots:
   debug@4.3.7:
     dependencies:
       ms: 2.1.3
-
-  deepmerge@4.3.1: {}
 
   defu@6.0.1(patch_hash=1780f4e4f74b651ece75ec841000d9c155607e01b328efc91c4f39fb5f1c3e7c): {}
 
@@ -2672,15 +2590,9 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
 
-  is-core-module@2.15.1:
-    dependencies:
-      hasown: 2.0.2
-
   is-core-module@2.16.1:
     dependencies:
       hasown: 2.0.2
-
-  is-module@1.0.0: {}
 
   js-levenshtein@1.1.6: {}
 
@@ -2769,12 +2681,6 @@ snapshots:
   resolve@1.22.10:
     dependencies:
       is-core-module: 2.16.1
-      path-parse: 1.0.7
-      supports-preserve-symlinks-flag: 1.0.0
-
-  resolve@1.22.8:
-    dependencies:
-      is-core-module: 2.15.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 
