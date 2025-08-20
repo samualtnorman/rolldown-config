@@ -43,6 +43,9 @@ importers:
       defu:
         specifier: ^6.0.0
         version: 6.0.1(patch_hash=1780f4e4f74b651ece75ec841000d9c155607e01b328efc91c4f39fb5f1c3e7c)
+      rolldown:
+        specifier: 1.0.0-beta.33
+        version: 1.0.0-beta.33
       rollup-plugin-prettier:
         specifier: ^4.0.0
         version: 4.0.0(prettier@3.3.3)(rollup@4.40.2)
@@ -68,9 +71,6 @@ importers:
       jsr:
         specifier: ^0.13.5
         version: 0.13.5
-      rolldown:
-        specifier: 1.0.0-beta.33
-        version: 1.0.0-beta.33
       rollup:
         specifier: ^4.40.2
         version: 4.40.2
