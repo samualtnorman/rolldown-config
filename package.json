@@ -26,7 +26,7 @@
 		"@rollup/plugin-babel": "^6.1.0",
 		"@rollup/plugin-terser": "^0.4.4",
 		"@samual/lib": "0.13.1-5f3d742",
-		"babel-plugin-here": "1.0.3-e0fc72f",
+		"babel-plugin-here": "1.0.3-d254d5b",
 		"babel-plugin-vitest": "0.0.1-7dc1dde",
 		"defu": "^6.1.4",
 		"rolldown": "1.0.0-beta.43",

@@ -35,8 +35,8 @@ importers:
         specifier: 0.13.1-5f3d742
         version: 0.13.1-5f3d742
       babel-plugin-here:
-        specifier: 1.0.3-e0fc72f
-        version: 1.0.3-e0fc72f
+        specifier: 1.0.3-d254d5b
+        version: 1.0.3-d254d5b
       babel-plugin-vitest:
         specifier: 0.0.1-7dc1dde
         version: 0.0.1-7dc1dde
@@ -937,10 +937,6 @@ packages:
     resolution: {integrity: sha512-bncLPtRBTnpi2ktNlVHwMix+SO2EcrTQHfIWVzEJ9Bm1JD/QX5rhaD4D4vleeM57sOJMXToRfgKX6NXUTT3JQA==}
     engines: {node: ^18.20 || ^20.10 || >=22}
 
-  '@samual/lib@0.13.1-e3379e2':
-    resolution: {integrity: sha512-CNXJ6WpxCzgzr8Yz0AxN9p1P6a6W7hs7XVLj6C6MJHe8lTZPZ9GtZlkox4x69u+YqkDJ5UkVOjm6HMHMaF06KA==}
-    engines: {node: ^18.20 || ^20.10 || >=22}
-
   '@total-typescript/ts-reset@0.6.1':
     resolution: {integrity: sha512-cka47fVSo6lfQDIATYqb/vO1nvFfbPw7uWLayIXIhGETj0wcOOlrlkobOMDNQOFr9QOafegUPq13V2+6vtD7yg==}
 
@@ -990,8 +986,8 @@ packages:
   babel-plugin-here@1.0.3-ac850f7:
     resolution: {integrity: sha512-tDwH9UHbPtXsMjWr++dZpHNxt1ojSKpcTOry34EXOMXfc03uyhrp1CJbIDCuX8ivigPE9uuN+c70IYKMsjqbdg==}
 
-  babel-plugin-here@1.0.3-e0fc72f:
-    resolution: {integrity: sha512-eo7aZEVpdtBJuSobtTAf336zfz8ZRiZG6+7Q4Nz+FMMW38CRaCkBMKzS6Ckdx4IqaX2/bzXRjyKiIuw/v/2qcg==}
+  babel-plugin-here@1.0.3-d254d5b:
+    resolution: {integrity: sha512-qQCtaaLEc31LN9pyKoGw4fdFhOgg07IGqHDinQdOxIiHMUjh4iJ+foCJKZwcRgT4jYABdZzl2Wl9YwY6jjrThg==}
 
   babel-plugin-polyfill-corejs2@0.4.14:
     resolution: {integrity: sha512-Co2Y9wX854ts6U8gAAPXfn0GmAyctHuK8n0Yhfjd6t30g7yvKjspvvOo9yG+z52PZRgFErt7Ka2pYnXCjLKEpg==}
@@ -2212,8 +2208,6 @@ snapshots:
 
   '@samual/lib@0.13.1-5f3d742': {}
 
-  '@samual/lib@0.13.1-e3379e2': {}
-
   '@total-typescript/ts-reset@0.6.1': {}
 
   '@tybys/wasm-util@0.10.1':
@@ -2267,10 +2261,10 @@ snapshots:
       '@babel/types': 7.28.4
       '@samual/lib': 0.13.1-4031e7a
 
-  babel-plugin-here@1.0.3-e0fc72f:
+  babel-plugin-here@1.0.3-d254d5b:
     dependencies:
       '@babel/types': 7.28.4
-      '@samual/lib': 0.13.1-e3379e2
+      '@samual/lib': 0.13.1-5f3d742
 
   babel-plugin-polyfill-corejs2@0.4.14(@babel/core@7.28.4):
     dependencies:
