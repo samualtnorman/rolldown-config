@@ -38,8 +38,8 @@ importers:
         specifier: 0.0.2-23ffc7f
         version: 0.0.2-23ffc7f
       babel-plugin-here:
-        specifier: 1.0.3-d254d5b
-        version: 1.0.3-d254d5b
+        specifier: 1.0.3-0e10245
+        version: 1.0.3-0e10245
       babel-plugin-vitest:
         specifier: 0.0.1-7dc1dde
         version: 0.0.1-7dc1dde
@@ -1097,6 +1097,9 @@ packages:
     resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  babel-plugin-here@1.0.3-0e10245:
+    resolution: {integrity: sha512-DW69Pq2Kzjbq2h9L18w/33Z1R0YmsKeY3FJhfw8a92G6gEOKSclOQW8doVLKDcmSedes80Bf3jmZoal40+n6Ww==}
 
   babel-plugin-here@1.0.3-d254d5b:
     resolution: {integrity: sha512-qQCtaaLEc31LN9pyKoGw4fdFhOgg07IGqHDinQdOxIiHMUjh4iJ+foCJKZwcRgT4jYABdZzl2Wl9YwY6jjrThg==}
@@ -2842,6 +2845,12 @@ snapshots:
   '@types/semver@7.7.1': {}
 
   acorn@8.15.0: {}
+
+  babel-plugin-here@1.0.3-0e10245:
+    dependencies:
+      '@babel/types': 7.28.4
+      '@samual/assert': 0.0.1-fc7f76d
+      '@types/babel__core': 7.20.5
 
   babel-plugin-here@1.0.3-d254d5b:
     dependencies:
