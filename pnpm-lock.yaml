@@ -31,9 +31,12 @@ importers:
       '@rollup/plugin-terser':
         specifier: ^0.4.1
         version: 0.4.1(rollup@4.40.2)
-      '@samual/lib':
-        specifier: 0.13.1-5f3d742
-        version: 0.13.1-5f3d742
+      '@samual/assert':
+        specifier: 0.0.1-fc7f76d
+        version: 0.0.1-fc7f76d
+      '@samual/types':
+        specifier: 0.0.2-23ffc7f
+        version: 0.0.2-23ffc7f
       babel-plugin-here:
         specifier: 1.0.3-d254d5b
         version: 1.0.3-d254d5b
@@ -1041,9 +1044,17 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@samual/assert@0.0.1-fc7f76d':
+    resolution: {integrity: sha512-+68V7PoM0hc8LvPBmJMNcQfoKni81zQ8SraOtA14juqEkr4j4XcjkfvQM4cnESs9+bKPhmH+X28hGN9NavXESg==}
+    engines: {node: ^20.10 || ^22 || >=24}
+
   '@samual/lib@0.13.1-5f3d742':
     resolution: {integrity: sha512-bncLPtRBTnpi2ktNlVHwMix+SO2EcrTQHfIWVzEJ9Bm1JD/QX5rhaD4D4vleeM57sOJMXToRfgKX6NXUTT3JQA==}
     engines: {node: ^18.20 || ^20.10 || >=22}
+
+  '@samual/types@0.0.2-23ffc7f':
+    resolution: {integrity: sha512-6vqdhFUB2mcW+E2S+OdLLXuBZeg7+GL6ocAq4XqD7OiTG24MOnvFpiTDk2XxkBgAYHmVqfX/tABfgYAros1a3w==}
+    engines: {node: ^20.10 || >=22}
 
   '@total-typescript/ts-reset@0.6.1':
     resolution: {integrity: sha512-cka47fVSo6lfQDIATYqb/vO1nvFfbPw7uWLayIXIhGETj0wcOOlrlkobOMDNQOFr9QOafegUPq13V2+6vtD7yg==}
@@ -2778,7 +2789,13 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.40.2':
     optional: true
 
+  '@samual/assert@0.0.1-fc7f76d':
+    dependencies:
+      '@samual/types': 0.0.2-23ffc7f
+
   '@samual/lib@0.13.1-5f3d742': {}
+
+  '@samual/types@0.0.2-23ffc7f': {}
 
   '@total-typescript/ts-reset@0.6.1': {}
 

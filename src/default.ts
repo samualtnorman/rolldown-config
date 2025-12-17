@@ -4,12 +4,13 @@ import babelPresetEnv, { Options as BabelPresetEnvOptions } from "@babel/preset-
 import babelPresetTypescript from "@babel/preset-typescript"
 import { babel, type RollupBabelInputPluginOptions } from "@rollup/plugin-babel"
 import terser, { type Options as TerserOptions } from "@rollup/plugin-terser"
-import type { LaxPartial } from "@samual/lib"
-import { ensure } from "@samual/lib/assert"
-import { findFiles } from "@samual/lib/findFiles"
+import { expect } from "@samual/assert"
+import type { LaxPartial } from "@samual/types"
 import { babelPluginHere } from "babel-plugin-here"
 import { babelPluginVitest } from "babel-plugin-vitest"
 import { defu } from "defu"
+import type { Dirent } from "fs"
+import { readdir as readFolder } from "fs/promises"
 import { cpus } from "os"
 import * as Path from "path"
 import type { RolldownOptions } from "rolldown"
@@ -66,6 +67,8 @@ type Options = LaxPartial<{
 	experimental: LaxPartial<{ noSideEffects: boolean }>
 }>
 
+const getDirentParentPath = (dirent: Dirent): string => (dirent as any).parentPath ?? dirent.path
+
 /**
  * Construct a {@linkcode RollupOptions} object.
  *
@@ -106,7 +109,9 @@ export const rolldownConfig = async ({
 }: Options = {}): Promise<RolldownOptions> => defu(rolldownOptions, {
 	external: source => !(Path.isAbsolute(source) || source.startsWith(".")),
 	input: Object.fromEntries(
-		(await findFiles(sourcePath))
+		(await readFolder(sourcePath, { withFileTypes: true, recursive: true }))
+			.filter(dirent => dirent.isFile())
+			.map(dirent => Path.join(getDirentParentPath(dirent), dirent.name))
 			.filter(path =>
 				(path.endsWith(".js") && !path.endsWith(".test.js")) ||
 				(path.endsWith(".ts") && !path.endsWith(".d.ts") && !path.endsWith(".test.ts"))
@@ -136,7 +141,7 @@ export const rolldownConfig = async ({
 		experimental?.noSideEffects && {
 			name: `no-side-effects`,
 			async renderChunk(code) {
-				const ast = ensure(await parseAsync(code, { plugins: [ babelPluginSyntaxTypescript ] }))
+				const ast = expect(await parseAsync(code, { plugins: [ babelPluginSyntaxTypescript ] }))
 				const indexes: number[] = []
 
 				traverse(ast, {
