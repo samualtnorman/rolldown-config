@@ -19,7 +19,7 @@
 	},
 	"repository": "github:samualtnorman/rolldown-config",
 	"dependencies": {
-		"@babel/core": "^7",
+		"@babel/core": "^7.19",
 		"@babel/plugin-syntax-typescript": "^7",
 		"@babel/preset-env": "^7",
 		"@babel/preset-typescript": "^7",
