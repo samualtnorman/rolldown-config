@@ -41,6 +41,7 @@
 		"@types/node": "~20.10.8",
 		"@types/semver": "^7.7.1",
 		"jsr": "^0.14.2",
+		"oxc-transform": "^0.112.0",
 		"semver": "^7.7.4",
 		"typescript": "^5.9.3"
 	},

@@ -10,6 +10,8 @@
 		"target": "ES2022",
 		"declaration": true,
 		"emitDeclarationOnly": true,
-		"outDir": "../dist"
+		"outDir": "../dist",
+		"isolatedDeclarations": true,
+		"checkJs": false
 	}
 }
