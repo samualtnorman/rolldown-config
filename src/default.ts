@@ -64,7 +64,7 @@ type Options = LaxPartial<{
 	 */
 	prettierOptions: PrettierOptions
 
-	experimental: LaxPartial<{ noSideEffects: boolean }>
+	experimental: LaxPartial<{ noSideEffects: boolean, disablePrettier: boolean }>
 }>
 
 const getDirentParentPath = (dirent: Dirent): string => (dirent as any).parentPath ?? dirent.path
@@ -164,7 +164,7 @@ export const rolldownConfig = async ({
 				return code
 			}
 		},
-		prettier(defu(prettierOptions, {
+		experimental?.disablePrettier ? undefined : prettier(defu(prettierOptions, {
 			parser: "espree",
 			useTabs: true,
 			tabWidth: 4,
