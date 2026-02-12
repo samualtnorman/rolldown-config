@@ -133,7 +133,7 @@ export const rolldownConfig = async ({
 			plugins: [ babelPluginHere(), babelPluginVitest() ]
 		} satisfies RollupBabelInputPluginOptions)),
 		terser(defu(terserOptions, {
-			compress: { passes: Infinity, unsafe: true, sequences: false },
+			compress: { passes: Infinity, unsafe: true, sequences: false, keep_infinity: true },
 			maxWorkers: Math.floor(cpus().length / 2),
 			mangle: false,
 			ecma: 2020
