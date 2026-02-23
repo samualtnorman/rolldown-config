@@ -30,7 +30,7 @@
 		"babel-plugin-here": "1.0.3-0e10245",
 		"babel-plugin-vitest": "0.0.1-7dc1dde",
 		"defu": "^6",
-		"rolldown": "1.0.0-rc.4",
+		"rolldown": "1.0.0-rc.5",
 		"rollup-plugin-prettier": "^4"
 	},
 	"devDependencies": {
@@ -41,7 +41,7 @@
 		"@types/node": "~20.10.8",
 		"@types/semver": "^7.7.1",
 		"jsr": "^0.14.3",
-		"oxc-transform": "^0.112.0",
+		"oxc-transform": "^0.115.0",
 		"semver": "^7.7.4",
 		"typescript": "^5.9.3"
 	},
