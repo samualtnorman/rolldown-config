@@ -26,12 +26,12 @@
 		"@rollup/plugin-babel": "^6",
 		"@rollup/plugin-terser": "^0.4.4",
 		"@samual/assert": "0.0.1-fc7f76d",
+		"@samual/rolldown-plugin-prettier": "0.0.1-e9bc31f",
 		"@samual/types": "0.0.2-23ffc7f",
 		"babel-plugin-here": "1.0.3-0e10245",
 		"babel-plugin-vitest": "0.0.1-7dc1dde",
 		"defu": "^6",
-		"rolldown": "1.0.0-rc.6",
-		"rollup-plugin-prettier": "^4"
+		"rolldown": "1.0.0-rc.6"
 	},
 	"devDependencies": {
 		"@samual/previous-rolldown-config": "jsr:@samual/rolldown-config@0.0.1-62d6139",

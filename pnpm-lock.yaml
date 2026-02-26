@@ -34,6 +34,9 @@ importers:
       '@samual/assert':
         specifier: 0.0.1-fc7f76d
         version: 0.0.1-fc7f76d
+      '@samual/rolldown-plugin-prettier':
+        specifier: 0.0.1-e9bc31f
+        version: 0.0.1-e9bc31f
       '@samual/types':
         specifier: 0.0.2-23ffc7f
         version: 0.0.2-23ffc7f
@@ -49,9 +52,6 @@ importers:
       rolldown:
         specifier: 1.0.0-rc.6
         version: 1.0.0-rc.6
-      rollup-plugin-prettier:
-        specifier: ^4
-        version: 4.0.0(prettier@3.6.2)(rollup@4.40.2)
     devDependencies:
       '@samual/previous-rolldown-config':
         specifier: jsr:@samual/rolldown-config@0.0.1-62d6139
@@ -934,6 +934,10 @@ packages:
     resolution: {integrity: sha512-+68V7PoM0hc8LvPBmJMNcQfoKni81zQ8SraOtA14juqEkr4j4XcjkfvQM4cnESs9+bKPhmH+X28hGN9NavXESg==}
     engines: {node: ^20.10 || ^22 || >=24}
 
+  '@samual/rolldown-plugin-prettier@0.0.1-e9bc31f':
+    resolution: {integrity: sha512-3mrfrC2eTR/qsTKtx7aaUAZoEsGlUxc6M6yf7AmApb6JWLVJHXMwC9PN8qrvI6At4hemSAqPq2Zj3by56FBw1Q==}
+    engines: {node: ^20.10 || ^22 || >=24}
+
   '@samual/types@0.0.2-23ffc7f':
     resolution: {integrity: sha512-6vqdhFUB2mcW+E2S+OdLLXuBZeg7+GL6ocAq4XqD7OiTG24MOnvFpiTDk2XxkBgAYHmVqfX/tABfgYAros1a3w==}
     engines: {node: ^20.10 || >=22}
@@ -1024,6 +1028,10 @@ packages:
     resolution: {integrity: sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==}
     engines: {node: '>=0.3.1'}
 
+  diff@8.0.3:
+    resolution: {integrity: sha512-qejHi7bcSD4hQAZE0tNAawRK1ZtafHDmMTMkrrIGgSLl7hTnQHmKCeB45xAcbfTqK2zowkM3j3bHt/4b/ARbYQ==}
+    engines: {node: '>=0.3.1'}
+
   electron-to-chromium@1.5.237:
     resolution: {integrity: sha512-icUt1NvfhGLar5lSWH3tHNzablaA5js3HVHacQimfP8ViEBOQv+L7DKEuHdbTZ0SKCO1ogTJTIL1Gwk9S6Qvcg==}
 
@@ -1085,6 +1093,9 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  magic-string@0.30.21:
+    resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
   magic-string@0.30.3:
     resolution: {integrity: sha512-B7xGbll2fG/VjP+SWg4sX3JynwIU0mjoTc6MPpKNuIvftk6u6vqhDnk1R80b8C2GBR6ywqy+1DcKBrevBg+bmw==}
@@ -2075,6 +2086,17 @@ snapshots:
     dependencies:
       '@samual/types': 0.0.2-23ffc7f
 
+  '@samual/rolldown-plugin-prettier@0.0.1-e9bc31f':
+    dependencies:
+      diff: 8.0.3
+      lodash.hasin: 4.5.2
+      lodash.isempty: 4.4.0
+      lodash.isnil: 4.0.0
+      lodash.omitby: 4.6.0
+      magic-string: 0.30.21
+      prettier: 3.6.2
+      rolldown: 1.0.0-rc.6
+
   '@samual/types@0.0.2-23ffc7f': {}
 
   '@total-typescript/ts-reset@0.6.1': {}
@@ -2159,6 +2181,8 @@ snapshots:
 
   diff@5.1.0: {}
 
+  diff@8.0.3: {}
+
   electron-to-chromium@1.5.237: {}
 
   escalade@3.2.0: {}
@@ -2202,6 +2226,10 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  magic-string@0.30.21:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.5.5
 
   magic-string@0.30.3:
     dependencies:

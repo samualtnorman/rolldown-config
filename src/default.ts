@@ -5,6 +5,7 @@ import babelPresetTypescript from "@babel/preset-typescript"
 import { babel, type RollupBabelInputPluginOptions } from "@rollup/plugin-babel"
 import terser, { type Options as TerserOptions } from "@rollup/plugin-terser"
 import { expect } from "@samual/assert"
+import prettier, { type Options as PrettierOptions } from "@samual/rolldown-plugin-prettier"
 import type { LaxPartial } from "@samual/types"
 import { babelPluginHere } from "babel-plugin-here"
 import { babelPluginVitest } from "babel-plugin-vitest"
@@ -14,7 +15,6 @@ import { readdir as readFolder } from "fs/promises"
 import { cpus } from "os"
 import * as Path from "path"
 import type { RolldownOptions } from "rolldown"
-import prettier, { type Options as PrettierOptions } from "rollup-plugin-prettier"
 
 type Options = LaxPartial<{
 	/**
