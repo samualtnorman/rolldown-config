@@ -30,7 +30,7 @@
 		"babel-plugin-here": "1.0.3-0e10245",
 		"babel-plugin-vitest": "0.0.1-7dc1dde",
 		"defu": "^6",
-		"rolldown": "1.0.0-rc.5",
+		"rolldown": "1.0.0-rc.6",
 		"rollup-plugin-prettier": "^4"
 	},
 	"devDependencies": {
