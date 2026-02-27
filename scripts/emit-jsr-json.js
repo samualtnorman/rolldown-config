@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { expect } from "@samual/assert"
 import { mkdirSync as makeDirectorySync, writeFileSync } from "fs"
 import packageJson from "../package.json" with { type: "json" }
 
@@ -26,7 +27,7 @@ const imports = Object.fromEntries(Object.entries(dependencies).map(
 				`@${name.slice(7, name.indexOf(`__`))}/${name.slice(name.indexOf(`__`) + 2)}`
 			: name.slice(7)
 		: name,
-		`${name in ConvertToJsr ? `jsr:${ConvertToJsr[name]}` : `npm:${name}`}@${version}`
+		`${name in ConvertToJsr ? `jsr:${expect(ConvertToJsr[name])}` : `npm:${name}`}@${version}`
 	]
 ))
 

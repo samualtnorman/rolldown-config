@@ -67,7 +67,7 @@ type Options = LaxPartial<{
 	experimental: LaxPartial<{ noSideEffects: boolean, disablePrettier: boolean }>
 }>
 
-const getDirentParentPath = (dirent: Dirent): string => (dirent as any).parentPath ?? dirent.path
+const getDirentParentPath = (dirent: Dirent): string => expect(dirent.parentPath ?? dirent.path)
 
 /**
  * Construct a {@linkcode RollupOptions} object.
