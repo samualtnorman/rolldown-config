@@ -14,7 +14,8 @@ import type { Dirent } from "fs"
 import { readdir as readFolder } from "fs/promises"
 import { cpus } from "os"
 import * as Path from "path"
-import type { RolldownOptions } from "rolldown"
+import type { ConfigExport, RolldownOptions } from "rolldown"
+import { dts } from "rolldown-plugin-dts"
 
 type Options = LaxPartial<{
 	/**
@@ -64,7 +65,7 @@ type Options = LaxPartial<{
 	 */
 	prettierOptions: PrettierOptions
 
-	experimental: LaxPartial<{ noSideEffects: boolean, disablePrettier: boolean }>
+	experimental: LaxPartial<{ noSideEffects: boolean, disablePrettier: boolean, dts: boolean }>
 }>
 
 const getDirentParentPath = (dirent: Dirent): string => expect(dirent.parentPath ?? dirent.path)
@@ -99,81 +100,102 @@ const getDirentParentPath = (dirent: Dirent): string => expect(dirent.parentPath
  * export default rolldownConfig()
  * ```
  */
-export const rolldownConfig = async ({
+export const rolldownConfig: (options?: Options) => ConfigExport | Promise<ConfigExport> = async ({
 	sourcePath = "src",
 	rolldownOptions,
 	babelOptions,
 	terserOptions,
 	prettierOptions,
 	experimental
-}: Options = {}): Promise<RolldownOptions> => defu(rolldownOptions, {
-	external: source => !(Path.isAbsolute(source) || source.startsWith(".")),
-	input: Object.fromEntries(
-		(await readFolder(sourcePath, { withFileTypes: true, recursive: true }))
-			.filter(dirent => dirent.isFile())
-			.map(dirent => Path.join(getDirentParentPath(dirent), dirent.name))
-			.filter(path =>
-				(path.endsWith(".js") && !path.endsWith(".test.js")) ||
-				(path.endsWith(".ts") && !path.endsWith(".d.ts") && !path.endsWith(".test.ts"))
-			)
-			.map(path => [ path.slice(sourcePath.length + 1, -3), path ])
-	),
-	output: { dir: `dist` },
-	plugins: [
-		babel(defu(babelOptions, {
-			babelHelpers: "bundled",
-			extensions: [ ".ts" ],
-			presets: [
-				[
-					babelPresetEnv,
-					{ targets: { node: "20.10" } } satisfies BabelPresetEnvOptions
+} = {}) => {
+	prettierOptions = defu(prettierOptions, {
+		parser: "espree",
+		useTabs: true,
+		tabWidth: 4,
+		arrowParens: "avoid",
+		printWidth: 120,
+		semi: false,
+		trailingComma: "none"
+	} satisfies PrettierOptions)
+
+	const config = defu(rolldownOptions, {
+		external: source => !(Path.isAbsolute(source) || source.startsWith(".")),
+		input: Object.fromEntries(
+			(await readFolder(sourcePath, { withFileTypes: true, recursive: true }))
+				.filter(dirent => dirent.isFile())
+				.map(dirent => Path.join(getDirentParentPath(dirent), dirent.name))
+				.filter(path =>
+					(path.endsWith(".js") && !path.endsWith(".test.js")) ||
+					(path.endsWith(".ts") && !path.endsWith(".d.ts") && !path.endsWith(".test.ts"))
+				)
+				.map(path => [ path.slice(sourcePath.length + 1, -3), path ])
+		),
+		output: { dir: `dist` },
+		plugins: [
+			babel(defu(babelOptions, {
+				babelHelpers: "bundled",
+				extensions: [ ".ts" ],
+				presets: [
+					[
+						babelPresetEnv,
+						{ targets: { node: "20.10" } } satisfies BabelPresetEnvOptions
+					],
+					[ babelPresetTypescript, { allowDeclareFields: true, optimizeConstEnums: true } ]
 				],
-				[ babelPresetTypescript, { allowDeclareFields: true, optimizeConstEnums: true } ]
-			],
-			plugins: [ babelPluginHere(), babelPluginVitest() ]
-		} satisfies RollupBabelInputPluginOptions)),
-		terser(defu(terserOptions, {
-			compress: { passes: Infinity, unsafe: true, sequences: false, keep_infinity: true },
-			maxWorkers: Math.floor(cpus().length / 2),
-			mangle: false,
-			ecma: 2020
-		} satisfies TerserOptions)),
-		experimental?.noSideEffects && {
-			name: `no-side-effects`,
-			async renderChunk(code) {
-				const ast = expect(await parseAsync(code, { plugins: [ babelPluginSyntaxTypescript ] }))
-				const indexes: number[] = []
+				plugins: [ babelPluginHere(), babelPluginVitest() ]
+			} satisfies RollupBabelInputPluginOptions)),
+			terser(defu(terserOptions, {
+				compress: { passes: Infinity, unsafe: true, sequences: false, keep_infinity: true },
+				maxWorkers: Math.floor(cpus().length / 2),
+				mangle: false,
+				ecma: 2020
+			} satisfies TerserOptions)),
+			experimental?.noSideEffects && {
+				name: `no-side-effects`,
+				async renderChunk(code) {
+					const ast = expect(await parseAsync(code, { plugins: [ babelPluginSyntaxTypescript ] }))
+					const indexes: number[] = []
 
-				traverse(ast, {
-					Function(path) {
-						if (
-							path.node.loc &&
-							!path.node.type.endsWith(`Method`) &&
-							(!path.isExpression() || path.parentPath.node.type == `VariableDeclarator`) &&
-							path.isPure()
-						)
-							indexes.push(path.node.loc.start.index)
-					}
-				})
+					traverse(ast, {
+						Function(path) {
+							if (
+								path.node.loc &&
+								!path.node.type.endsWith(`Method`) &&
+								(!path.isExpression() || path.parentPath.node.type == `VariableDeclarator`) &&
+								path.isPure()
+							)
+								indexes.push(path.node.loc.start.index)
+						}
+					})
 
-				indexes.sort((a, b) => b - a)
+					indexes.sort((a, b) => b - a)
 
-				for (const index of indexes)
-					code = `${code.slice(0, index)}/*@__NO_SIDE_EFFECTS__*/${code.slice(index)}`
+					for (const index of indexes)
+						code = `${code.slice(0, index)}/*@__NO_SIDE_EFFECTS__*/${code.slice(index)}`
 
-				return code
+					return code
+				}
+			},
+			experimental?.disablePrettier ? undefined : prettier(prettierOptions)
+		],
+		preserveEntrySignatures: "strict",
+		treeshake: { moduleSideEffects: false }
+	} satisfies RolldownOptions)
+
+	if (experimental?.dts) {
+		return [
+			config,
+			{
+				external: config.external,
+				input: config.input,
+				output: config.output,
+				plugins: [
+					dts({ oxc: true, emitDtsOnly: true }),
+					experimental?.disablePrettier ? undefined : prettier({ ...prettierOptions, parser: `babel-ts` })
+				]
 			}
-		},
-		experimental?.disablePrettier ? undefined : prettier(defu(prettierOptions, {
-			parser: "espree",
-			useTabs: true,
-			tabWidth: 4,
-			arrowParens: "avoid",
-			printWidth: 120,
-			semi: false,
-			trailingComma: "none"
-		} satisfies PrettierOptions))
-	],
-	preserveEntrySignatures: "strict",
-	treeshake: { moduleSideEffects: false }
-} satisfies RolldownOptions)
+		]
+	}
+
+	return config
+}
