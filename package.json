@@ -23,7 +23,7 @@
 		"@babel/plugin-syntax-typescript": "^7",
 		"@babel/preset-env": "^7",
 		"@babel/preset-typescript": "^7",
-		"@rollup/plugin-babel": "^6",
+		"@rollup/plugin-babel": "^7",
 		"@rollup/plugin-terser": "^0.4.4",
 		"@samual/assert": "0.0.1-fc7f76d",
 		"@samual/rolldown-plugin-prettier": "0.0.1-e9bc31f",
