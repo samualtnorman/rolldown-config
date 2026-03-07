@@ -4,8 +4,8 @@ let fetchNixpkgs =
   { rev, sha256 ? "" }: import (fetchFromGitHub { owner = "NixOS"; repo = "nixpkgs"; inherit rev sha256; }) {}; in
 
 let inherit (fetchNixpkgs {
-  rev = "5b35d248e9206c1f3baf8de6a7683fee126364aa"; # 24.11 2025/03/11
-  sha256 = "NTtKOTLQv6dPfRe00OGSywg37A1FYqldS6xiNmqBUYc=";
+  rev = "71caefce12ba78d84fe618cf61644dce01cf3a96"; # 24.11 2025/03/11
+  sha256 = "yf3iYLGbGVlIthlQIk5/4/EQDZNNEmuqKZkQssMljuw=";
 }) nodejs_22 pnpm_10; in
 
 mkShellNoCC { packages = [ cacert git nodejs_22 pnpm_10 ]; }
