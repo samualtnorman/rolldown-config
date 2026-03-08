@@ -191,7 +191,7 @@ export const rolldownConfig: (options?: Options) => ConfigExport | Promise<Confi
 				output: config.output,
 				plugins: [
 					dts({ oxc: true, emitDtsOnly: true }),
-					experimental?.disablePrettier ? undefined : prettier({ ...prettierOptions, parser: `babel-ts` })
+					experimental.disablePrettier ? undefined : prettier({ ...prettierOptions, parser: `babel-ts` })
 				]
 			}
 		]
