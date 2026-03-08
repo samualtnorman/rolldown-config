@@ -26,7 +26,7 @@
 		"@rollup/plugin-babel": "^7",
 		"@rollup/plugin-terser": "^0.4.4",
 		"@samual/assert": "0.0.1-da0fbad",
-		"@samual/rolldown-plugin-prettier": "0.0.1-e9bc31f",
+		"@samual/rolldown-plugin-prettier": "0.0.1-7fd8404",
 		"@samual/types": "0.0.2-23ffc7f",
 		"babel-plugin-here": "1.0.3-0e10245",
 		"babel-plugin-vitest": "0.0.1-7dc1dde",
