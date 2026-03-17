@@ -68,7 +68,7 @@ type Options = LaxPartial<{
 	experimental: LaxPartial<{ noSideEffects: boolean, disablePrettier: boolean, dts: boolean }>
 }>
 
-const getDirentParentPath = (dirent: Dirent): string => expect(dirent.parentPath ?? dirent.path)
+const getDirentParentPath = (dirent: Dirent): string => expect(dirent.parentPath ?? dirent.path, HERE)
 
 /**
  * Construct a {@linkcode RollupOptions} object.
@@ -153,7 +153,7 @@ export const rolldownConfig: (options?: Options) => ConfigExport | Promise<Confi
 			experimental?.noSideEffects && {
 				name: `no-side-effects`,
 				async renderChunk(code) {
-					const ast = expect(await parseAsync(code, { plugins: [ babelPluginSyntaxTypescript ] }))
+					const ast = expect(await parseAsync(code, { plugins: [ babelPluginSyntaxTypescript ] }), HERE)
 					const indexes: number[] = []
 
 					traverse(ast, {

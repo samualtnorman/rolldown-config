@@ -12,6 +12,7 @@
 		"emitDeclarationOnly": true,
 		"outDir": "../dist",
 		"isolatedDeclarations": true,
-		"checkJs": false
+		"checkJs": false,
+		"types": [ "@types/node", "@total-typescript/ts-reset", "babel-plugin-here/env" ]
 	}
 }
