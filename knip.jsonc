@@ -1,0 +1,10 @@
+{
+	"entry": [
+		"src/**/*.ts",
+		"scripts/*.js",
+		"rolldown.config.js"
+	],
+	"ignoreDependencies": [
+		"eslint-plugin-you-dont-need-lodash-underscore"
+	]
+}
