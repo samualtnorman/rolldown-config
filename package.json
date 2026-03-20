@@ -26,13 +26,13 @@
 		"@rollup/plugin-babel": "^7",
 		"@rollup/plugin-terser": "^0.4.4",
 		"@samual/assert": "0.0.1-da0fbad",
-		"@samual/rolldown-plugin-prettier": "0.0.1-7fd8404",
 		"@samual/types": "0.0.2-23ffc7f",
 		"babel-plugin-here": "1.0.3-0e10245",
 		"babel-plugin-vitest": "0.0.1-7dc1dde",
 		"defu": "^6",
 		"rolldown": "1.0.0-rc.6",
-		"rolldown-plugin-dts": "^0.22.2"
+		"rolldown-plugin-dts": "^0.22.2",
+		"rolldown-plugin-prettier": "0.0.1-a.BTUGCVCcG.TGFCcZ"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.3.4",
