@@ -56,8 +56,8 @@ importers:
         specifier: ^0.22.5
         version: 0.22.5(oxc-resolver@11.19.1)(rolldown@1.0.0-rc.10)(typescript@5.9.3)
       rolldown-plugin-prettier:
-        specifier: 0.0.1-a.BTUGCVCcG.TGFCcZ
-        version: 0.0.1-a.BTUGCVCcG.TGFCcZ
+        specifier: 0.0.1-a.BTUQLDdaH.SOfPdb
+        version: 0.0.1-a.BTUQLDdaH.SOfPdb
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3.3.5
@@ -1884,8 +1884,8 @@ packages:
       vue-tsc:
         optional: true
 
-  rolldown-plugin-prettier@0.0.1-a.BTUGCVCcG.TGFCcZ:
-    resolution: {integrity: sha512-q/YaGCHVq+mmw23mkfkE4Yu48RXBWXWfG8vYprw5sqDpIzUVoFfAdw95+YGkLrxvVTrmudHzoZrh46+iETJggA==}
+  rolldown-plugin-prettier@0.0.1-a.BTUQLDdaH.SOfPdb:
+    resolution: {integrity: sha512-gMxdiEUts8NH5Y5paU52dXOQ1OpZergNsKKiw6tFgtwperVbt8OkxjlezY+/voIG5TrzXpye11kH1GSYldjWoA==}
     engines: {node: ^20.10 || ^22 || >=24}
 
   rolldown@1.0.0-rc.10:
@@ -3826,7 +3826,7 @@ snapshots:
     transitivePeerDependencies:
       - oxc-resolver
 
-  rolldown-plugin-prettier@0.0.1-a.BTUGCVCcG.TGFCcZ:
+  rolldown-plugin-prettier@0.0.1-a.BTUQLDdaH.SOfPdb:
     dependencies:
       diff: 8.0.3
       magic-string: 0.30.21
