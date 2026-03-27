@@ -35,11 +35,11 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(rollup@4.40.2)
       '@samual/assert':
-        specifier: 0.0.1-da0fbad
-        version: 0.0.1-da0fbad
+        specifier: ^0.0.1
+        version: 0.0.1
       '@samual/types':
-        specifier: 0.0.2-23ffc7f
-        version: 0.0.2-23ffc7f
+        specifier: ^0.0.2
+        version: 0.0.2
       babel-plugin-here:
         specifier: 1.0.3-0e10245
         version: 1.0.3-0e10245
@@ -1294,8 +1294,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@samual/assert@0.0.1-da0fbad':
-    resolution: {integrity: sha512-aaLA5u6LwNhbR+iz5FxmQeqzSf2nlXpmDmPa/Vq5KPm1WtMsakT+p1GAXsyKIo92TRXHob2ETasHbF/fl9Dzmw==}
+  '@samual/assert@0.0.1':
+    resolution: {integrity: sha512-cspA34Z+N+pfq1jTnk+p9/qYj2+sdxI2QNijuF40U+yyRT7D33dX1H+tM0XS+B8se1JTxhJhMHQa2nt5k+hosw==}
     engines: {node: ^20.10 || ^22 || >=24}
 
   '@samual/assert@0.0.1-fc7f76d':
@@ -1305,6 +1305,10 @@ packages:
   '@samual/rolldown-plugin-prettier@0.0.1-7fd8404':
     resolution: {integrity: sha512-GNYqAerLblsocI6jEX/TU4tdy2pyAS0nl7XOt1QZwRKAsgI6l+JnOd0634W6QhcQJxSuy9J2tqP17Sccy396Cw==}
     engines: {node: ^20.10 || ^22 || >=24}
+
+  '@samual/types@0.0.2':
+    resolution: {integrity: sha512-iRbfdz4Kc6fg1IYz0KughcbX8JeMynPiaPyGEprnFC9ROdR6Pxlg0VZxGgIWkMTrAxaCoo90lgfGlWzvIni7kg==}
+    engines: {node: ^20.10 || >=22}
 
   '@samual/types@0.0.2-23ffc7f':
     resolution: {integrity: sha512-6vqdhFUB2mcW+E2S+OdLLXuBZeg7+GL6ocAq4XqD7OiTG24MOnvFpiTDk2XxkBgAYHmVqfX/tABfgYAros1a3w==}
@@ -3242,9 +3246,9 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.40.2':
     optional: true
 
-  '@samual/assert@0.0.1-da0fbad':
+  '@samual/assert@0.0.1':
     dependencies:
-      '@samual/types': 0.0.2-23ffc7f
+      '@samual/types': 0.0.2
 
   '@samual/assert@0.0.1-fc7f76d':
     dependencies:
@@ -3256,6 +3260,8 @@ snapshots:
       magic-string: 0.30.21
       prettier: 3.8.1
       rolldown: 1.0.0-rc.6
+
+  '@samual/types@0.0.2': {}
 
   '@samual/types@0.0.2-23ffc7f': {}
 
