@@ -41,11 +41,11 @@ importers:
         specifier: ^0.0.2
         version: 0.0.2
       babel-plugin-here:
-        specifier: 1.0.3-0e10245
-        version: 1.0.3-0e10245
+        specifier: 1.0.3-9f222fd
+        version: 1.0.3-9f222fd(@babel/core@7.19.6)(@types/babel__core@7.20.5)
       babel-plugin-vitest:
-        specifier: 0.0.1-7dc1dde
-        version: 0.0.1-7dc1dde
+        specifier: 0.0.1-bdec539
+        version: 0.0.1-bdec539(@babel/core@7.19.6)(@types/babel__core@7.20.5)
       defu:
         specifier: ^6
         version: 6.0.1(patch_hash=1780f4e4f74b651ece75ec841000d9c155607e01b328efc91c4f39fb5f1c3e7c)
@@ -1298,20 +1298,12 @@ packages:
     resolution: {integrity: sha512-cspA34Z+N+pfq1jTnk+p9/qYj2+sdxI2QNijuF40U+yyRT7D33dX1H+tM0XS+B8se1JTxhJhMHQa2nt5k+hosw==}
     engines: {node: ^20.10 || ^22 || >=24}
 
-  '@samual/assert@0.0.1-fc7f76d':
-    resolution: {integrity: sha512-+68V7PoM0hc8LvPBmJMNcQfoKni81zQ8SraOtA14juqEkr4j4XcjkfvQM4cnESs9+bKPhmH+X28hGN9NavXESg==}
-    engines: {node: ^20.10 || ^22 || >=24}
-
   '@samual/rolldown-plugin-prettier@0.0.1-7fd8404':
     resolution: {integrity: sha512-GNYqAerLblsocI6jEX/TU4tdy2pyAS0nl7XOt1QZwRKAsgI6l+JnOd0634W6QhcQJxSuy9J2tqP17Sccy396Cw==}
     engines: {node: ^20.10 || ^22 || >=24}
 
   '@samual/types@0.0.2':
     resolution: {integrity: sha512-iRbfdz4Kc6fg1IYz0KughcbX8JeMynPiaPyGEprnFC9ROdR6Pxlg0VZxGgIWkMTrAxaCoo90lgfGlWzvIni7kg==}
-    engines: {node: ^20.10 || >=22}
-
-  '@samual/types@0.0.2-23ffc7f':
-    resolution: {integrity: sha512-6vqdhFUB2mcW+E2S+OdLLXuBZeg7+GL6ocAq4XqD7OiTG24MOnvFpiTDk2XxkBgAYHmVqfX/tABfgYAros1a3w==}
     engines: {node: ^20.10 || >=22}
 
   '@total-typescript/ts-reset@0.6.1':
@@ -1435,12 +1427,32 @@ packages:
     resolution: {integrity: sha512-trmleAnZ2PxN/loHWVhhx1qeOHSRXq4TDsBBxq3GqeJitfk3+jTQ+v/C1km/KYq9M7wKqCewMh+/NAvVH7m+bw==}
     engines: {node: '>=20.19.0'}
 
-  babel-plugin-here@1.0.3-0e10245:
-    resolution: {integrity: sha512-DW69Pq2Kzjbq2h9L18w/33Z1R0YmsKeY3FJhfw8a92G6gEOKSclOQW8doVLKDcmSedes80Bf3jmZoal40+n6Ww==}
+  babel-plugin-here@1.0.3-9f222fd:
+    resolution: {integrity: sha512-Q44LAlN2vq2vA3RG8LvRZov9ZaLKY9Qbzp6PDf+ybrRpOxzJ6UvR6oL8O2/3fhoz4v8McvCnhJ+jZT3mtPpUvw==}
+    peerDependencies:
+      '@babel/core': ^7.1.0
+      '@types/babel__core': ^7.1.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@types/babel__core':
+        optional: true
 
   babel-plugin-vitest@0.0.1-7dc1dde:
     resolution: {integrity: sha512-pBrCvAEddVcZVmD3jBpuNqczX04gvIFVkG1s4kjIUmt0fYhG+feL7k+aXFpAmugMo9aG1lXrgwpjFWj3oh+1qQ==}
     engines: {node: ^18.20 || ^20.10 || >=22}
+
+  babel-plugin-vitest@0.0.1-bdec539:
+    resolution: {integrity: sha512-S/bH4Y81NQ/FqgEy7ZiC5Pd9j+/n3qdBLWNyoLE546RsTmQzoj32aL73+HU2zDkklmCILlW5WH4MTvgGT3225w==}
+    engines: {node: ^20.10 || ^22 || >=24}
+    peerDependencies:
+      '@babel/core': ^7.20.0
+      '@types/babel__core': ^7.20.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@types/babel__core':
+        optional: true
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -3250,10 +3262,6 @@ snapshots:
     dependencies:
       '@samual/types': 0.0.2
 
-  '@samual/assert@0.0.1-fc7f76d':
-    dependencies:
-      '@samual/types': 0.0.2-23ffc7f
-
   '@samual/rolldown-plugin-prettier@0.0.1-7fd8404':
     dependencies:
       diff: 8.0.4
@@ -3262,8 +3270,6 @@ snapshots:
       rolldown: 1.0.0-rc.6
 
   '@samual/types@0.0.2': {}
-
-  '@samual/types@0.0.2-23ffc7f': {}
 
   '@total-typescript/ts-reset@0.6.1': {}
 
@@ -3424,15 +3430,24 @@ snapshots:
       estree-walker: 3.0.3
       pathe: 2.0.3
 
-  babel-plugin-here@1.0.3-0e10245:
+  babel-plugin-here@1.0.3-9f222fd(@babel/core@7.19.6)(@types/babel__core@7.20.5):
     dependencies:
       '@babel/types': 7.29.0
-      '@samual/assert': 0.0.1-fc7f76d
+      '@samual/assert': 0.0.1
+    optionalDependencies:
+      '@babel/core': 7.19.6
       '@types/babel__core': 7.20.5
 
   babel-plugin-vitest@0.0.1-7dc1dde:
     dependencies:
       '@babel/types': 7.29.0
+
+  babel-plugin-vitest@0.0.1-bdec539(@babel/core@7.19.6)(@types/babel__core@7.20.5):
+    dependencies:
+      '@babel/types': 7.29.0
+    optionalDependencies:
+      '@babel/core': 7.19.6
+      '@types/babel__core': 7.20.5
 
   balanced-match@1.0.2: {}
 
