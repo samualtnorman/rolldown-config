@@ -5,7 +5,10 @@ import { readFileSync } from "fs"
 import * as Semver from "semver"
 import packageJson from "../package.json" with { type: "json" }
 
-const hash = spawnSync("git", [ "rev-parse", "--short", "HEAD" ], { encoding: "utf8" }).stdout.trim()
+const hash = spawnSync("git", [ "rev-parse", "--short", "HEAD" ], {
+	encoding: "utf8",
+	stdio: [ `ignore`, `pipe`, `inherit` ]
+}).stdout.trim()
 
 spawnSync("pnpm", [ "version", `${expect(Semver.inc(packageJson.version, "patch"))}-${hash}` ], { stdio: "inherit" })
 
