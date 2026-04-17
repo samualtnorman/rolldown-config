@@ -23,6 +23,8 @@ export default defineConfig(
 			"n/hashbang": "off",
 			"n/no-process-exit": "off",
 			"@typescript-eslint/no-unused-vars": "off",
+			"@typescript-eslint/prefer-string-starts-ends-with": [ "error", { allowSingleElementEquality: "always" } ],
+			"n/no-unsupported-features/node-builtins": [ "error", { ignores: [ "util.styleText" ] } ]
 		}
 	},
 	{
