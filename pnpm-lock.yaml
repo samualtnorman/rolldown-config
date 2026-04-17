@@ -45,7 +45,7 @@ importers:
         version: 0.0.1-bdec539(@babel/core@7.19.6)(@types/babel__core@7.20.5)
       defu:
         specifier: ^6
-        version: 6.0.1(patch_hash=1780f4e4f74b651ece75ec841000d9c155607e01b328efc91c4f39fb5f1c3e7c)
+        version: 6.1.5(patch_hash=1780f4e4f74b651ece75ec841000d9c155607e01b328efc91c4f39fb5f1c3e7c)
       rolldown:
         specifier: 1.0.0-rc.15
         version: 1.0.0-rc.15
@@ -64,7 +64,7 @@ importers:
         version: 10.0.1(eslint@10.2.0(jiti@2.6.1))
       '@samual/previous-rolldown-config':
         specifier: jsr:@samual/rolldown-config@0.0.1-aead861
-        version: '@jsr/samual__rolldown-config@0.0.1-aead861(@types/babel__core@7.20.5)(oxc-resolver@11.19.1(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2))(rollup@4.40.2)(typescript@6.0.2)'
+        version: link:jsr:@samual/rolldown-config@0.0.1-aead861
       '@total-typescript/ts-reset':
         specifier: ^0.6.1
         version: 0.6.1
@@ -584,18 +584,6 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
-
-  '@jsr/samual__rolldown-config@0.0.1-aead861':
-    resolution: {integrity: sha512-jgh2e5mWPdNJmBeu+Dwi7id0TnJZn1aajtw/hyA8uer4WnRtZ/IW7YD1wCzbj0TZLWnbFReo2pWm7se63+D8ww==, tarball: https://npm.jsr.io/~/11/@jsr/samual__rolldown-config/0.0.1-aead861.tgz}
-
-  '@jsr/samual__types@0.0.2':
-    resolution: {integrity: sha512-YLdBXiJa0hLL0mO7clwaP+My07mJf/OoZzNDO/a/iN8cOlr2QHttfJeSbkyu/baKpyy934Hn43T2rj8/3gM63Q==, tarball: https://npm.jsr.io/~/11/@jsr/samual__types/0.0.2.tgz}
-
-  '@jsr/sn__assert@0.0.1':
-    resolution: {integrity: sha512-yY2cU9AQDNzV3GkKC0f2W35HRpEV5xCUTLhLoOsIWCkoFQoG2i0+mh1h3t3XzfDgv+N5h/K5a8ZEkNu9cAZMpQ==, tarball: https://npm.jsr.io/~/11/@jsr/sn__assert/0.0.1.tgz}
-
-  '@jsr/sn__babel-plugin-here@1.0.3-9f222fd':
-    resolution: {integrity: sha512-snb4kcbFC/DE4eKq14i6mG9zvu7GVBhdwTqSizey243SL8huJ1vapq+C8aCogCGgm00cDRrCUw6l5SiENrYKOA==, tarball: https://npm.jsr.io/~/11/@jsr/sn__babel-plugin-here/1.0.3-9f222fd.tgz}
 
   '@napi-rs/wasm-runtime@1.1.3':
     resolution: {integrity: sha512-xK9sGVbJWYb08+mTJt3/YV24WxvxpXcXtP6B172paPZ+Ts69Re9dAr7lKwJoeIx8OoeuimEiRZ7umkiUVClmmQ==}
@@ -1406,8 +1394,8 @@ packages:
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
-  defu@6.0.1:
-    resolution: {integrity: sha512-rZrZJDGZkdmVhFer2Q7ItCOcpPaAU8nDvDOBHTJNiYkvgvUeomBkJTuzRKNQoWgXUFJLx1tDhp3lqdS/twWUdw==}
+  defu@6.1.5:
+    resolution: {integrity: sha512-pwdBJxJuJXmqrLO6s0VBmfbRz+G7FUzkjldAsdi9Yrv86mPyzq0ll1o8+8gB4Gsr6GJHbK1Lh3ngllgTInDCjA==}
 
   diff@8.0.4:
     resolution: {integrity: sha512-DPi0FmjiSU5EvQV0++GFDOJ9ASQUVFh5kD+OzOnYdi7n3Wpm9hWWGfB/O2blfHcMVTL5WkQXSnRiK9makhrcnw==}
@@ -2651,46 +2639,6 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@jsr/samual__rolldown-config@0.0.1-aead861(@types/babel__core@7.20.5)(oxc-resolver@11.19.1(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2))(rollup@4.40.2)(typescript@6.0.2)':
-    dependencies:
-      '@babel/core': 7.19.6
-      '@babel/plugin-syntax-typescript': 7.28.6(@babel/core@7.19.6)
-      '@babel/preset-env': 7.0.0(@babel/core@7.19.6)
-      '@babel/preset-typescript': 7.0.0(@babel/core@7.19.6)
-      '@jsr/samual__types': 0.0.2
-      '@jsr/sn__assert': 0.0.1
-      '@jsr/sn__babel-plugin-here': 1.0.3-9f222fd
-      '@rollup/plugin-babel': 7.0.0(@babel/core@7.19.6)(@types/babel__core@7.20.5)(rollup@4.40.2)
-      '@rollup/plugin-terser': 1.0.0(rollup@4.40.2)
-      babel-plugin-vitest: 0.0.1-bdec539(@babel/core@7.19.6)(@types/babel__core@7.20.5)
-      defu: 6.0.1(patch_hash=1780f4e4f74b651ece75ec841000d9c155607e01b328efc91c4f39fb5f1c3e7c)
-      rolldown: 1.0.0-rc.15
-      rolldown-plugin-dts: 0.23.2(oxc-resolver@11.19.1(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2))(rolldown@1.0.0-rc.15)(typescript@6.0.2)
-      rolldown-plugin-prettier: 0.0.2-a.BTUSLDAcU.DbYQZf(rolldown@1.0.0-rc.15)
-    transitivePeerDependencies:
-      - '@ts-macro/tsc'
-      - '@types/babel__core'
-      - '@typescript/native-preview'
-      - oxc-resolver
-      - rollup
-      - supports-color
-      - typescript
-      - vue-tsc
-
-  '@jsr/samual__types@0.0.2': {}
-
-  '@jsr/sn__assert@0.0.1':
-    dependencies:
-      '@jsr/samual__types': 0.0.2
-
-  '@jsr/sn__babel-plugin-here@1.0.3-9f222fd':
-    dependencies:
-      '@babel/core': 7.19.6
-      '@babel/types': 7.29.0
-      '@jsr/sn__assert': 0.0.1
-    transitivePeerDependencies:
-      - supports-color
-
   '@napi-rs/wasm-runtime@1.1.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)':
     dependencies:
       '@emnapi/core': 1.9.2
@@ -3286,7 +3234,7 @@ snapshots:
 
   deep-is@0.1.4: {}
 
-  defu@6.0.1(patch_hash=1780f4e4f74b651ece75ec841000d9c155607e01b328efc91c4f39fb5f1c3e7c): {}
+  defu@6.1.5(patch_hash=1780f4e4f74b651ece75ec841000d9c155607e01b328efc91c4f39fb5f1c3e7c): {}
 
   diff@8.0.4: {}
 
