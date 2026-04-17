@@ -89,7 +89,7 @@ const cmdSync = /** @type {any} */ ((/** @type {SpawnSyncOptions} */ commandOrOp
 
 const hash = cmdSync({ stdio: [ `ignore`, `pipe`, `ignore` ] }, "git", "rev-parse", "--short", "HEAD").stdout.trim()
 
-cmdSync("pnpm", "version", `${expect(Semver.inc(packageJson.version, "patch"))}-${hash}`)
+cmdSync("npm", "version", `${expect(Semver.inc(packageJson.version, "patch"))}-${hash}`)
 
 const newVersion = /** @type {Record<string, unknown> | null} */
 	(JSON.parse(readFileSync(`package.json`, { encoding: `utf8` })))?.version
