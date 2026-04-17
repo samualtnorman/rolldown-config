@@ -17,4 +17,6 @@ jobs:
     - run: scripts/jsr.sh
     - run: scripts/npm.sh
     - run: scripts/test.sh
+    - run: git config --global user.email github-action@users.noreply.github.com
+    - run: git config --global user.name "Github Action"
     - run: scripts/version-dev.js
