@@ -17,3 +17,4 @@ jobs:
     - run: scripts/jsr.sh
     - run: scripts/npm.sh
     - run: scripts/test.sh
+    - run: scripts/version-dev.js
