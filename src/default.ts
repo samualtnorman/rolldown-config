@@ -9,7 +9,6 @@ import type { LaxPartial } from "@samual/types"
 import { babelPluginHere } from "babel-plugin-here"
 import { babelPluginVitest } from "babel-plugin-vitest"
 import { defu } from "defu"
-import type { Dirent } from "fs"
 import { readdir as readFolder } from "fs/promises"
 import { cpus } from "os"
 import * as Path from "path"
@@ -68,8 +67,6 @@ type Options = LaxPartial<{
 	experimental: LaxPartial<{ noSideEffects: boolean, disablePrettier: boolean, dts: boolean }>
 }>
 
-const getDirentParentPath = (dirent: Dirent): string => expect(dirent.parentPath ?? dirent.path, HERE)
-
 /**
  * Construct a {@linkcode RollupOptions} object.
  *
@@ -123,7 +120,7 @@ export const rolldownConfig: (options?: Options) => ConfigExport | Promise<Confi
 		input: Object.fromEntries(
 			(await readFolder(sourcePath, { withFileTypes: true, recursive: true }))
 				.filter(dirent => dirent.isFile())
-				.map(dirent => Path.join(getDirentParentPath(dirent), dirent.name))
+				.map(dirent => Path.join(dirent.parentPath, dirent.name))
 				.filter(path =>
 					(path.endsWith(".js") && !path.endsWith(".test.js")) ||
 					(path.endsWith(".ts") && !path.endsWith(".d.ts") && !path.endsWith(".test.ts"))
@@ -138,7 +135,7 @@ export const rolldownConfig: (options?: Options) => ConfigExport | Promise<Confi
 				presets: [
 					[
 						babelPresetEnv,
-						{ targets: { node: "20.10" } } satisfies BabelPresetEnvOptions
+						{ targets: { node: "22.12" } } satisfies BabelPresetEnvOptions
 					],
 					[ babelPresetTypescript, { allowDeclareFields: true, optimizeConstEnums: true } ]
 				],

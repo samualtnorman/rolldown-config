@@ -41,7 +41,7 @@
 		"@total-typescript/ts-reset": "^0.6.1",
 		"@types/babel__core": "^7.20.5",
 		"@types/babel__preset-env": "^7.10.0",
-		"@types/node": "~20.10.8",
+		"@types/node": "~22.12.0",
 		"@types/semver": "^7.7.1",
 		"eslint": "^10.2.0",
 		"eslint-plugin-depend": "^1.5.0",
@@ -55,14 +55,13 @@
 		"typescript-eslint": "^8.58.2"
 	},
 	"engines": {
-		"node": "^20.10 || ^22 || >=24",
+		"node": "^22.12 || >=24",
 		"pnpm": "^10"
 	},
 	"private": true,
 	"pnpm": {
 		"patchedDependencies": {
-			"defu": "patches/defu.patch",
-			"@types/node": "patches/@types__node.patch"
+			"defu": "patches/defu.patch"
 		}
 	}
 }

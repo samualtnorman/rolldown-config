@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
-  '@types/node':
-    hash: af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d
-    path: patches/@types__node.patch
   defu:
     hash: 1780f4e4f74b651ece75ec841000d9c155607e01b328efc91c4f39fb5f1c3e7c
     path: patches/defu.patch
@@ -78,8 +75,8 @@ importers:
         specifier: ^7.10.0
         version: 7.10.0
       '@types/node':
-        specifier: ~20.10.8
-        version: 20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d)
+        specifier: ~22.12.0
+        version: 22.12.0
       '@types/semver':
         specifier: ^7.7.1
         version: 7.7.1
@@ -1235,8 +1232,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@20.10.8':
-    resolution: {integrity: sha512-f8nQs3cLxbAFc00vEU59yf9UyGUftkPaLGfvbVOIDdx2i1b8epBqj2aNGyP19fiyXWvlmZ7qC1XLjAzw/OKIeA==}
+  '@types/node@22.12.0':
+    resolution: {integrity: sha512-Fll2FZ1riMjNmlmJOdAyY5pUbkftXslB5DgEzlIuNaiWhXd00FhWxVC/r4yV/4wBb9JfImTu+jiSvXTkJ7F/gA==}
 
   '@types/semver@7.7.1':
     resolution: {integrity: sha512-FmgJfu+MOcQ370SD0ev7EI8TlCAfKYU+B4m5T3yXc1CiRN94g/SZPtsCkk506aUDtlMnFZvasDwHHUcZUEaYuA==}
@@ -1989,8 +1986,8 @@ packages:
     resolution: {integrity: sha512-X2wH19RAPZE3+ldGicOkoj/SIA83OIxcJ6Cuaw23hf8Xc6fQpvZXY0SftE2JgS0QhYLUG4uwodSI3R53keyh7w==}
     engines: {node: '>=14'}
 
-  undici-types@5.26.5:
-    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
   unicode-canonical-property-names-ecmascript@2.0.1:
     resolution: {integrity: sha512-dA8WbNeb2a6oQzAQ55YlT5vQAWGV9WXOsi3SskE3bcCdM0P4SDd+24zS/OCacdRq5BkdsRj9q3Pg6YyQoxIGqg==}
@@ -3103,9 +3100,9 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@20.10.8(patch_hash=af9a90694ef27b743be5dfadcf15c54af6a099604a73303d653203b72c1ca55d)':
+  '@types/node@22.12.0':
     dependencies:
-      undici-types: 5.26.5
+      undici-types: 6.20.0
 
   '@types/semver@7.7.1': {}
 
@@ -3933,7 +3930,7 @@ snapshots:
 
   unbash@2.2.0: {}
 
-  undici-types@5.26.5: {}
+  undici-types@6.20.0: {}
 
   unicode-canonical-property-names-ecmascript@2.0.1: {}
 
