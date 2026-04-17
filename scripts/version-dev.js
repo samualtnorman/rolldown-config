@@ -10,7 +10,7 @@ import packageJson from "../package.json" with { type: "json" }
 /** @import { Replace } from "@samual/types" */
 
 const shellEscape = (/** @type {string} */ string) =>
-	/["\$&'\(\)\*;<>\?\[\\\]`{\|}~ \t\r\n]/.test(string) ? `'${string.replaceAll(`'`, `\\'`)}'` : string
+	/["$&'()*;<>?[\\\]`{|}~ \t\r\n]/.test(string) ? `'${string.replaceAll(`'`, `\\'`)}'` : string
 
 const highlightCommand = (/** @type {string} */ command, /** @type {string[]} */ args) =>
 	 `${styleText(`blueBright`, shellEscape(command))} ${args.map(arg => (arg = shellEscape(arg), styleText(arg[0] == `'` ? `green` : `cyanBright`, arg))).join(` `)}`
