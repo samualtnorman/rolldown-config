@@ -1,3 +1,7 @@
+[This repository has moved to Codeberg.](https://codeberg.org/Samual/rolldown-config)
+
+---
+
 # Samual's Rolldown Config
 An opinionated Rolldown config.
 
